@@ -130,3 +130,14 @@ a {
   color: var(--color-text-light);
   position: relative;
 }
+
+.nav-container a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transition: width 0.2s ease;
+}
