@@ -282,3 +282,10 @@ a {
   margin-top: var(--space-md);
   border-radius: var(--radius-md);
 }
+
+.menu-scroll-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content; /* Add this line to force a single horizontal row */
+  animation: scroll-track 22s linear infinite;
+}
