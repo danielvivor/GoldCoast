@@ -65,3 +65,13 @@ if (tablesContainer) {
         }
     });
 }
+
+function updateTableNumbers() {
+    const tableCards = tablesContainer.querySelectorAll(".table-item");
+    tableCards.forEach((card, index) => {
+        const numberSpan = card.querySelector(".table-number");
+        if (numberSpan) {
+            numberSpan.textContent = `Table #${index + 1}`;
+        }
+    });
+}
