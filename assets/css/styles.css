@@ -217,3 +217,10 @@ a {
   width: 100%;
 }
 
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
