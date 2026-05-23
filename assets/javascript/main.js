@@ -237,3 +237,14 @@ if(reviewsList) {
         }
     });
 }
+
+// Contact
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", e => {
+        e.preventDefault();
+        alert("Your message has been sent!");
+        contactForm.reset();
+    });
+}
