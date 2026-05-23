@@ -237,3 +237,8 @@ a {
   border-radius: var(--radius-sm);
   font-family: inherit;
 }
+
+/* Menu section */
+#menu-heading {
+  text-align: center;
+}
