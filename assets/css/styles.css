@@ -414,6 +414,30 @@ a {
   font-size: var(--fs-lg);
 }
 
+/* Latest 3 reviews */
+.testimonials-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.testimonial-card {
+  padding: var(--space-md);
+  background: var(--color-bg-card);
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: var(--space-xs);
+}
+
+.testimonial-name {
+  font-weight: 700;
+  color: var(--color-gold-dark);
+}
+
 /* Footer */
 .site-footer {
   background: var(--color-black);
