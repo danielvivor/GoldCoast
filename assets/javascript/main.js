@@ -55,3 +55,13 @@ if (addTableBtn && tablesContainer && tableTemplate) {
         updateTableNumbers();
     });
 }
+
+// Remove a table (Event Delegation)
+if (tablesContainer) {
+    tablesContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("remove-table")) {
+            e.target.closest(".table-entry-card").remove();
+            updateTableNumbers();
+        }
+    });
+}
