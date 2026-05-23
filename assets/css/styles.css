@@ -397,6 +397,11 @@ a {
   box-shadow: var(--shadow-soft);
 }
 
+.reviews-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
 /* Footer */
 .site-footer {
   background: var(--color-black);
