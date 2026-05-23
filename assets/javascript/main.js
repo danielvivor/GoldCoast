@@ -155,3 +155,85 @@ window.deleteBooking = function(id) {
     save("reservations", reservations);
     document.getElementById("view-reservation-form").dispatchEvent(new Event("submit"));
 }
+
+// Reviews
+let reviews = load("reviews");
+
+const reviewForm = document.getElementById("review-form");
+const reviewsList = document.getElementById("reviews-list");
+const latestReviews = document.getElementById("latest-reviews");
+
+function renderReviews() {
+    if(reviewsList) {
+        reviewsList.innerHTML = reviews.map(r => `
+            <div class="review-card">
+                <div class="review-stars">${stars(r.rating || 0)}</div>
+                <p><strong>${r.name}</strong></p>
+                <p>${r.comment || ""}</p>
+                <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline edit-btn" style="padding: 0.5rem 1rem;" data-id="${r.id}">Edit</button>
+                    <button class="btn btn-outline delete-btn" style="padding: 0.5rem 1rem; color: #d9534f; border-color: #d9534f;" data-id="${r.id}">Delete</button>
+                </div>
+            </div>
+        `).join("");
+    }
+
+    if(latestReviews) {
+        const lastThree = [...reviews].slice(-3).reverse();
+        latestReviews.innerHTML = lastThree.map(r => `
+            <div class="testimonial-card">
+                <p class="testimonial-text">"${r.comment || "No comment"}"</p>
+                <p class="testimonial-name">— ${r.name}</p>
+            </div>
+        `).join("");
+    }
+}
+
+if (reviewForm) {
+    reviewForm.addEventListener("submit", e => {
+        e.preventDefault();
+
+        const id = document.getElementById("review-id").value;
+        const name = document.getElementById("review-name").value.trim();
+        const email = document.getElementById("review-email").value.trim();
+        const rating = Number(document.getElementById("review-rating").value);
+        const comment = document.getElementById("review-comment").value.trim();
+
+        if (!rating && !comment) {
+            alert("Please provide a rating or a comment.");
+            return;
+        }
+
+        if (id) {
+            const index = reviews.findIndex(r => r.id === id);
+            reviews[index] = { id, name, email, rating, comment };
+        } else {
+            reviews.push({ id: crypto.randomUUID(), name, email, rating, comment });
+        }
+
+        save("reviews", reviews);
+        reviewForm.reset();
+        document.getElementById("review-id").value = "";
+        renderReviews();
+    });
+}
+
+if(reviewsList) {
+    reviewsList.addEventListener("click", e => {
+        const id = e.target.dataset.id;
+        if (e.target.classList.contains("edit-btn")) {
+            const r = reviews.find(x => x.id === id);
+            document.getElementById("review-id").value = r.id;
+            document.getElementById("review-name").value = r.name;
+            document.getElementById("review-email").value = r.email;
+            document.getElementById("review-rating").value = r.rating;
+            document.getElementById("review-comment").value = r.comment;
+            window.scrollTo({ top: reviewForm.offsetTop - 80, behavior: "smooth" });
+        }
+        if (e.target.classList.contains("delete-btn")) {
+            reviews = reviews.filter(r => r.id !== id);
+            save("reviews", reviews);
+            renderReviews();
+        }
+    });
+}
