@@ -141,3 +141,7 @@ a {
   background: var(--color-gold);
   transition: width 0.2s ease;
 }
+
+.nav-container a:hover::after {
+  width: 100%;
+}
