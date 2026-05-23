@@ -296,3 +296,12 @@ a {
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
+
+@keyframes scroll-track {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
