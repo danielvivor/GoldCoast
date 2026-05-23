@@ -117,3 +117,11 @@ a {
   letter-spacing: 0.15rem;
   text-transform: uppercase;
 }
+
+.nav-container {
+  display: flex;
+  gap: var(--space-lg);
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+}
