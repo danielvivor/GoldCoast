@@ -254,3 +254,11 @@ a {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.menu-category {
+  background: var(--color-bg-card);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border);
+}
