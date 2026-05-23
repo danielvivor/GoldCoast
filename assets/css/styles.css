@@ -320,3 +320,8 @@ a {
   gap: var(--space-lg);
   margin-bottom: var(--space-md);
 }
+
+.footer-copy {
+  font-size: var(--fs-xs);
+  color: #aaa;
+}
