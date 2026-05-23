@@ -168,3 +168,14 @@ a {
   padding: var(--space-2xl) var(--space-lg);
   text-align: center;
 }
+
+.hero-subtitle {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+}
