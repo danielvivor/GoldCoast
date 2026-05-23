@@ -46,3 +46,12 @@ const addTableBtn = document.getElementById("add-table-btn");
 const tablesContainer = document.getElementById("tables-container");
 const tableTemplate = document.getElementById("table-row-template");
 const successMsg = document.getElementById("booking-success-msg");
+
+// Add a new table
+if (addTableBtn && tablesContainer && tableTemplate) {
+    addTableBtn.addEventListener("click", () => {
+        const clone = tableTemplate.content.cloneNode(true);
+        tablesContainer.appendChild(clone);
+        updateTableNumbers();
+    });
+}
