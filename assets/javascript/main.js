@@ -23,3 +23,17 @@ if (navToggle && navContainer) {
         navToggle.setAttribute("aria-expanded", isOpen);
     });
 }
+
+// Infinite Auto-Scrolling
+document.querySelectorAll(".menu-scroll-track").forEach(track => {
+    // Get all the images currently inside the track
+    const images = Array.from(track.children);
+    
+    // Clone each image and append it to the SAME track
+    images.forEach(img => {
+        const clone = img.cloneNode(true);
+        // Optional: Hide clones from screen readers so they aren't announced twice
+        clone.setAttribute("aria-hidden", "true"); 
+        track.appendChild(clone);
+    });
+});
