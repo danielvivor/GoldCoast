@@ -60,3 +60,7 @@ body {
   color: var(--color-text-main);
   line-height: 1.6;
 }
+
+ul {
+  list-style: none;
+}
