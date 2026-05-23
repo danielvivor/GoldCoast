@@ -370,6 +370,16 @@ a {
   box-shadow: var(--shadow-soft);
 }
 
+.status-badge {
+  background: #27ae60;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: var(--fs-xs);
+  margin-bottom: var(--space-xs);
+  display: inline-block;
+}
+
 /* Footer */
 .site-footer {
   background: var(--color-black);
